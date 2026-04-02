@@ -1,101 +1,31 @@
-# Deep Learning Assignment - Simple Code Package
+# Deep Learning Assignment
 
-This package is made to match your assignment with simple TensorFlow / Keras code.
+This repository contains the code and report for the Deep Learning assignment.
 
-## Folder contents
+## Files
+- `part1_fashion_mnist.py`: MLP and CNN experiments on Fashion-MNIST
+- `part1_cifar10.py`: MLP and CNN experiments on CIFAR-10
+- `part2_mura_custom_cnn.py`: custom CNN for MURA normal/abnormal study classification
+- `part2_mura_transfer.py`: EfficientNetB0 transfer learning for MURA
 
-- `part1_fashion_mnist.py`
-- `part1_cifar10.py`
-- `part2_mura_custom_cnn.py`
-- `part2_mura_transfer.py`
-- `requirements.txt`
-- `report/report_template.md`
-
-## 1) Create environment
-
+## Install
 ```bash
-python -m venv venv
-source venv/bin/activate        # Mac / Linux
-# venv\Scripts\activate         # Windows
-
 pip install -r requirements.txt
 ```
 
-## 2) Run Part 1
-
-### Fashion-MNIST
+## Run Part 1
 ```bash
 python part1_fashion_mnist.py
-```
-
-### CIFAR-10
-```bash
 python part1_cifar10.py
 ```
 
-The scripts will create folders:
-- `outputs/fashion_mnist/`
-- `outputs/cifar10/`
-
-Inside them you will find:
-- model files
-- confusion matrices
-- training curves
-- sample predictions
-- `metrics.json`
-
-## 3) Download MURA
-
-Go to the official Stanford AIMI / MURA pages and request the dataset.
-
-After download and unzip, keep a folder like:
-
-```text
-MURA-v1.1/
-    train/
-    valid/
-    train_image_paths.csv
-    valid_image_paths.csv
-```
-
-If your extracted folder has a slightly different structure, just point `--data_dir` to the folder that contains the CSV files.
-
-## 4) Run Part 2 - custom CNN
-
+## Run Part 2
 ```bash
-python part2_mura_custom_cnn.py --data_dir /path/to/MURA-v1.1
+python part2_mura_custom_cnn.py --data_dir "/path/to/MURA-v1.1"
+python part2_mura_transfer.py --data_dir "/path/to/MURA-v1.1"
 ```
 
-This creates:
-- `outputs/mura_custom_cnn/`
-
-## 5) Run Part 2 - transfer learning
-
-```bash
-python part2_mura_transfer.py --data_dir /path/to/MURA-v1.1
-```
-
-This creates:
-- `outputs/mura_transfer/`
-
-## 6) Write the report
-
-Open:
-- `report/report_template.md`
-
-Copy:
-- the final metric values from each `metrics.json`
-- the confusion matrix screenshots
-- the training curve screenshots
-- a few terminal screenshots that show the code ran successfully
-
-## Suggested order for your submission
-
-1. Run Fashion-MNIST
-2. Run CIFAR-10
-3. Request / download MURA
-4. Run custom CNN on MURA
-5. Run transfer learning on MURA
-6. Fill the report template
-7. Upload this code folder to GitHub / Drive
-8. Put the code link in the report
+## Notes
+- Fashion-MNIST and CIFAR-10 are downloaded automatically from Keras.
+- The MURA dataset is **not included** in this repository and must be downloaded separately from the official source.
+- Large outputs, datasets, and trained model files are intentionally excluded from the repository.
